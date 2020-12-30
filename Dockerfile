@@ -1,3 +1,4 @@
+# The docker file is used for production purpose
 # Specify the base image
 FROM node:10.17.0-alpine
 

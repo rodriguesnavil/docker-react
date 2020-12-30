@@ -1,0 +1,7 @@
+sudo: required
+services:
+  - docker
+before-install:
+  - docker build -t rodriguesnavil/docker-react -f Dockerfile.dev .
+script:
+  - docker run -e CI=true rodriguesnavil/docker-react npm run test
