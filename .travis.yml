@@ -5,3 +5,17 @@ before-install:
   - docker build -t rodriguesnavil/docker-react -f Dockerfile.dev .
 script:
   - docker run -e CI=true rodriguesnavil/docker-react npm run test
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "docker"
+  env: "Docker-env"
+  bucket_name: "elasticbeanstalk-us-east-1-172768266848"
+  bucket_path: "docker"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
+  
+# Docker-env.eba-mwdh9td8.us-east-1.elasticbeanstalk.com
+# For the bucket name search for s3
