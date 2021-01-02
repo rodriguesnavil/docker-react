@@ -6,11 +6,11 @@ FROM node:10.17.0-alpine
 WORKDIR '/app'
 
 # Move the package.json file in the container
-COPY ./package.json .
+COPY ./package*.json ./
 # Install the dependencies
 RUN npm install
 # Move all the left over files
-COPY . .
+COPY ./ ./
 # Specify the start up command
 RUN npm run build
 
